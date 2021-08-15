@@ -8,8 +8,9 @@
 <body>
 <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく-->
-    <input v-model="message">
-    <p>{{ message }}</p>
+    <header v-bind:class="{ compact: scrollY > 200 }">
+        200pxより下にスクロールしたら、.compactを付与
+    </header>
 </div>  
 <script src ="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="main.js"></script>
