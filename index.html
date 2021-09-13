@@ -7,10 +7,7 @@
     </head>
 <body>
 <div id="app">
-    <!-- この#appの内側にテンプレートを書き込んでいく-->
-    <input >
-    <input type="text" v-focus>
-    <input type="text" v-focus>
+    <my-component v-bind:name.sync="name" v-bind:hp.sync="hp"></my-component>
 </div>  
 <script src ="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
