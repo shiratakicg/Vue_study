@@ -6,9 +6,20 @@
         <link href="main.css" rel="stylesheet">
     </head>
 <body>
-<div id="app">
-    <my-component v-bind:name.sync="name" v-bind:hp.sync="hp"></my-component>
-</div>  
+    <div id="app">
+        <p><button v-on:click="show=!show">切り替え</button></p>
+        <transition
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:after-enter="afterEnter"
+          v-on:enter-cancelled="enterCancelled"
+          v-on:before-leave="beforeLeave"
+          v-on:leave="leave"
+          v-on:after-leave="afterLeave"
+          v-on:leave-cancelled="leaveCancelled">
+          <div v-if="show">example</div>
+        </transition>
+      </div>
 <script src ="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
 <script src="main.js"></script>

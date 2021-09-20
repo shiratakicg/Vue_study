@@ -1,37 +1,37 @@
-Vue.component('my-component', {
-  template: '<div class="my-component">\
-  <p>名前.{{ name }} HP.{{ hp }}</p>\
-  <p>名前 <input v-model="localName"></p>\
-  <p>HP <input size="5" v-model.number="localHp"></p>\
-  </div>',
-  props: {
-    name: String,
-    hp: Number
-  },
-  computed: {
-    // 算出プロパティのセッター＆ゲッターを使ってv-modelを使用
-    localName: {
-      get: function () {
-        return this.name
-      },
-      set: function (val) {
-        this.$emit('update:name', val)
-      }
-    },
-    localHp: {
-      get: function () {
-        return this.hp
-      },
-      set: function (val) {
-        this.$emit('update:hp', val)
-      }
-    }
-  }
-})
 new Vue({
   el: '#app',
   data: {
-    name: 'スライム',
-    hp: 100
+    show: true
+  },
+  methods: {
+    // Enter
+    beforeEnter: function (el) {
+      console.log('before-enter')
+    },
+    enter: function (el, done) {
+      console.log('enter')
+      setTimeout(done, 1000)
+    },
+    afterEnter: function (el) {
+      console.log('after-enter')
+    },
+    enterCancelled: function (el) {
+      console.log('enter-cancelled')
+    },
+    // Leave
+    beforeLeave: function (el) {
+      console.log('before-leave')
+    },
+    leave: function (el, done) {
+      console.log('leave')
+      setTimeout(done, 1000)
+    },
+    afterLeave: function (el) {
+      console.log('after-leave')
+    },
+    // v-show と共に使うときだけ leaveCancelled は有効です
+    leaveCancelled: function (el) {
+      console.log('leave-cancelled')
+    }
   }
 })
